@@ -1,3 +1,8 @@
+/**
+ * @file grid.h
+ * @author Justine Andreolli
+ */
+
 #ifndef GRID_HEADER
 #define GRID_HEADER
 enum CaseType{
