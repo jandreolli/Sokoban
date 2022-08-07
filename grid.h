@@ -72,5 +72,12 @@ void freeArray(struct Grid *grille);
  */
 void display(struct Grid *grille);
 
+/**
+ * @brief function making the player move by veryfing the conditions
+ * @param grille the structure Grid
+ * @param dir the enum Direction
+*/
+void move_player(struct Grid *grille, enum Direction dir);
+
 
 #endif
