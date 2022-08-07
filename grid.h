@@ -36,5 +36,11 @@ void init_level(const char* file_path, struct Grid *grille);
  */
 void freeArray(struct Grid *grille);
 
+/**
+ * @brief function displaying the level
+ * @param grille the Grid structure
+ */
+void display(struct Grid *grille);
+
 
 #endif

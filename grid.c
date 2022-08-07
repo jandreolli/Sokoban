@@ -46,10 +46,19 @@ void init_level(const char* file_path, struct Grid *grille){ // add parameter st
 	fclose(file);
 }
 
-
 void freeArray(struct Grid *grille){
 	for(int i = 0; i < grille->row_number; i++){
 		free(grille->game_grid[i]);
 	}
 	free(grille->game_grid);
 }
+
+void display(struct Grid *grille){
+	for(int i = 0; i < grille->row_number; i++){
+		for(int j = 0; j < grille->column_number; j++){
+			printf("%c", grille->game_grid[i][j]);
+		}
+		printf("\n");
+	}
+}
+

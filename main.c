@@ -7,6 +7,8 @@ int main(void){
 	struct Grid grille;
 	// call the init_level function to allocate the structure array and fill it 
 	init_level("level1.txt", &grille);
+	// display the level
+	display(&grille);
 	// free the game_grid array of the Grid structure 
 	freeArray(&grille);
 	
