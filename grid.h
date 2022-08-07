@@ -5,6 +5,12 @@
 
 #ifndef GRID_HEADER
 #define GRID_HEADER
+
+/**
+ * @enum CaseType 
+ * @brief This enum contains the symbols 
+ * used in the game grid
+ */
 enum CaseType{
 	WALL = '#',
 	BOX = '$',
@@ -14,8 +20,21 @@ enum CaseType{
 };
 
 /**
+ * @enum Direction
+ * @brief this enum contains the keys 
+ * to make the player move
+ */
+enum Direction{
+	TOP = 'k',
+	LEFT = 'h',
+	RIGHT = 'l',
+	BOTTOM = 'j'
+};
+
+/**
  * @struct Player
- * @brief This structure contains x and y position of the player
+ * @brief This structure contains x and y position 
+ * of the player
  */
 struct Player{
 	int x; // x Player position (row)
