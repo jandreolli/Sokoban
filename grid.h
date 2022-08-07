@@ -31,7 +31,7 @@ struct Grid{
 	enum CaseType** game_grid; ///< Array containing the entities present in the game
 	int column_number; ///< Number of columns in game_grid
 	int row_number; ///< Number of lines in game_grid
-	struct Player playerPosition; ///< Structure containing the player's position
+	struct Player playerPosition; ///< Structure containing the player position
 };
 
 /**

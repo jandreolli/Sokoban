@@ -22,7 +22,7 @@ void init_level(const char* file_path, struct Grid *grille){ // add parameter st
 	grille->row_number = number_row;
 
 	int current_row = 0;
-	int current_goal = 0;
+	//int current_goal = 0;
 
 	// allocate memory for the game_grid array
 	grille->game_grid = malloc(sizeof(enum CaseType*)*(grille->row_number));
@@ -37,6 +37,14 @@ void init_level(const char* file_path, struct Grid *grille){ // add parameter st
 		while(*buffer && *buffer != '\n'){
 			// fill the game_grid array with the symbols contained in the .txt file
 			grille->game_grid[current_row][current_column] = *buffer;
+
+			// if meet the player symbol then (x,y) = [current_row][current_column] 
+			if(*buffer == '@'){
+				grille->playerPosition.x = current_row;		// x = row
+				grille->playerPosition.y = current_column;	// y = column
+			}
+
+			// increment to access the next symbol
 			current_column += 1;
 			buffer += 1;
 		}		
