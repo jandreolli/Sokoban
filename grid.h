@@ -14,14 +14,27 @@ enum CaseType{
 };
 /**
  * @struct Grid grid.h
- * @brief Cette structure contient les informations 
- * concernant la grille du jeu et son contenu
+ * @brief This structure contains information
+ * about the game grid and its content
  */
 struct Grid{
-	enum CaseType** game_grid; ///< Tableau contenant les entités présents dans le jeu
-	int column_number; ///< Nombre de colonne de game_grid
-	int row_number; ///< Nomber de ligne de game_grid
+	enum CaseType** game_grid; ///< Array containing the entities present in the game
+	int column_number; ///< Number of columns in game_grid
+	int row_number; ///< Number of lines in game_grid
 };
-void init_level(const char* file_path);
+
+/**
+ * @brief function writing the enum CaseType in the game_grid array
+ * @param file_path the .txt file corresponding to the level 
+ * @param grille the Grid structure
+ */
+void init_level(const char* file_path, struct Grid *grille);
+
+/**
+ * @brief function freeing the Grid structure array
+ * @param grille the Grid structure
+ */
+void freeArray(struct Grid *grille);
+
 
 #endif

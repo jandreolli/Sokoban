@@ -2,32 +2,54 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void init_level(const char* file_path){
-	// ouverture du fichier en mode lecture
+void init_level(const char* file_path, struct Grid *grille){ // add parameter struct Grid *grille
+	// opening of the file in reading mode
 	FILE* file = fopen(file_path, "r");
 	if(!file){
 		fprintf(stderr, "Error %s not found", file_path);
 		exit(-1);
 	}
 	char line[100] = {0};
-	int number_column = 0; // nombre de colonne
-	int number_row = 0; /// nombre de ligne
+	int number_column = 0; // number of columns
+	int number_row = 0; /// number of lines
 	int number_goals = 0;
-	// on lit la première ligne du fichier
+	// read the first line of the file
 	fgets(line, 100, file);
 	sscanf(line, "%d %d %d", &number_column, &number_row, &number_goals);
+	
+	// write the number of columns and rows in the Grid structure
+	grille->column_number = number_column;
+	grille->row_number = number_row;
+
 	int current_row = 0;
 	int current_goal = 0;
-	// On lit le fichier ligne par ligne jusqu'à la fin du fichier
+
+	// allocate memory for the game_grid array
+	grille->game_grid = malloc(sizeof(enum CaseType*)*(grille->row_number));
+	for (int i = 0; i < grille->row_number; i++){
+		grille->game_grid[i] = malloc(sizeof(enum CaseType*)*(grille->column_number));
+	}
+
+	// read the file line by line until the end of the file
 	while(fgets(line, 100, file) != NULL){
 		char* buffer = line;
 		int current_column = 0;
 		while(*buffer && *buffer != '\n'){
+			// fill the game_grid array with the symbols contained in the .txt file
+			grille->game_grid[current_row][current_column] = *buffer;
 			current_column += 1;
 			buffer += 1;
 		}		
 		current_row += 1;
 	}
-	// fermeture du fichier
+	// file closing
 	fclose(file);
+}
+
+
+void freeArray(struct Grid *grille){
+	for(int i = 0; i < grille->row_number; i++){
+		free(grille->game_grid[i]);
+	}
+	free(grille->game_grid);
 }
