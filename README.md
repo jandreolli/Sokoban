@@ -9,6 +9,15 @@ Project in C langage done for the course "Development Techniques" at the UFR Mat
 
 ## Getting Started
 
+### Prerequisites
+
+- Install the SDL2:
+
+```
+sudo apt-get install libsdl2-dev
+```
+
+
 ### Installation
 
 - **To compile the projet, launch this command in the terminal:**
@@ -17,13 +26,55 @@ Project in C langage done for the course "Development Techniques" at the UFR Mat
 make
 ```
 
+This command compiles the SDL2, installs the library and compiles the project.
+
+- You have the choice between two interface:
+    + _Graphic interface_
+    + _Console interface_
+
+- **To launch the program with the graphic interface:**
+
+```
+./sokoban --sdl2
+```
+
 - **To launch the program with a console interface type this command in the terminal:**
 
 ```
 ./sokoban
 ```
+or
+```
+./sokoban --console
+```
+
+## Play Sokoban
+
+### Game principle
+
+- Sokoban is a game of reflexion. The goal is to put the boxes on the goals.
+- The player can only push one box at a time.
+- The player can go through the goals.
+- The level is won when the player put a box on all the goals.
+
 
 ### Program Flow
+
+
++ **Graphic Interface**
+
+- Each colored square represent an element:
+    + **dark blue square** : wall
+    + **white square** : player
+    + **light blue square** : box
+    + **yellow square** : goal
+    + **brown square** : box on a goal
+
+- The player can move the boxes with the arrow keyboard keys.
+
+- To quit the game, click on the red cross on the right up corner of the window.
+
+![sokoban_graphique](https://user-images.githubusercontent.com/95167842/183390196-5e3299ef-de5d-416a-920c-e1330caae6a7.png)
 
 + **Console Interface**
 
@@ -56,7 +107,7 @@ make doc
 make clean
 ```
 
-**NB** : deletes the binary files, executable, html repository, .tar.gz file.
+**NB** : deletes the binary files, executable, html repository, .tar.gz file, install_dir file.
 
 ## To generate an archive
 
@@ -64,7 +115,7 @@ make clean
 make archive
 ```
 
-**NB** : An archive containing the c, h and txt files, Makefile, README and Doxyfile will be created.
+**NB** : An archive containing the c, h and txt files, Makefile, README, Doxyfile and SDL2 directory will be created.
 
 
 ## Author
