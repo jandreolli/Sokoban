@@ -14,19 +14,26 @@ int main(void){
 	init_level("level1.txt", &grille);
 	
 	// display with sdl2
-	display_sdl2(&grille);
+	//display_sdl2(&grille);
 
 	// display the level
-	display(&grille);
-	
+	//display(&grille);
+
+	// call the function display_sdl2(&grille) with the function pointers
+	void (*handle_display)(struct Grid *grille) = &display_sdl2;
+
+	// call the function eventsdl2() with the function pointers
+	Event (*handle_event)() = &event_sdl2;
+
 	bool run = true;
 	while(run){
-		Event key = event_sdl2();
+		Event key = handle_event();
 		
 		// if all the GOALS have a BOX on them, we get out of the game loop
 		if(grille.nbCiblePoints_covered == grille.nbCiblePoints){
 			key = Quit;
 		}
+
 		switch(key){
 			case Up :
 				move_player(&grille, TOP);
@@ -48,10 +55,11 @@ int main(void){
 			default:
 				break;
 		}
+		handle_display(&grille);
 		// display the grid on the terminal
-		display(&grille);
+		//display(&grille);
 		// display the grid with sdl2
-		display_sdl2(&grille);
+		//display_sdl2(&grille);
 	}
 	// free the game_grid array of the Grid structure 
 	freeArray(&grille);
