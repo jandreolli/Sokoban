@@ -1,2 +1,6 @@
 # Ignore the directory html
 html/
+
+# Ignore the directory install_dir
+install_dir/
+
