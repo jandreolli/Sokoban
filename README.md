@@ -92,6 +92,12 @@ or
 
 ![sokoban_console](https://user-images.githubusercontent.com/95167842/183304169-c05e9632-0c95-4493-9b77-8870247240bb.png)
 
++ **Endgame message**
+
+- If all the goals have a box on them, the player won and a message is displayed on the terminal.
+
+- If the player quits the game without managing to solve the game, a message will be displayed on the terminal.
+
 
 ### Some commands
 
