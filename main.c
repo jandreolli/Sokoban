@@ -3,10 +3,15 @@
 #include <stdbool.h>
 
 int main(void){
+	// initialize sdl2
+	sdl_init();
+
 	// creation of a Grid type structure
 	struct Grid grille;
+	
 	// call the init_level function to allocate the structure array and fill it 
 	init_level("level1.txt", &grille);
+	
 	// display the level
 	display(&grille);
 	
@@ -49,6 +54,8 @@ int main(void){
 			}
 		}
 	}
+	// quit sdl2
+	sdl_quit();
 }
 
 
