@@ -99,3 +99,33 @@ void display_sdl2(struct Grid *grille){
   }
   SDL_RenderPresent(context.renderer); // display everything
 }
+
+Event event_sdl2(){
+  SDL_Event ev;
+  SDL_WaitEvent(&ev);
+  switch(ev.type){
+    case SDL_QUIT:
+      // pressed on the "quit" window button
+      return Quit;
+      break;
+    case SDL_KEYUP:
+      // released a keyboard key
+      switch(ev.key.keysym.sym){
+        case SDLK_UP:
+          return Up;
+          break;
+        case SDLK_DOWN:
+          return Down;
+          break;
+        case SDLK_LEFT:
+          return Left;
+          break;
+        case SDLK_RIGHT:
+          return Right;
+          break;
+      }
+      break;
+  }
+  return None;
+}
+

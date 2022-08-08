@@ -40,5 +40,24 @@ void sdl_quit();
  */
 void display_sdl2(struct Grid *grid);
 
+/**
+ * @enum Event
+ * @brief This enum contains the events corresponding to the keyboard keys
+ */
+typedef enum Event{
+  Quit,
+  Left,
+  Right,
+  Up,
+  Down,
+  None
+}Event;
+
+/**
+ * @brief function returning the type of action that has to be done
+ * @return an enum Event
+ */
+Event event_sdl2();
+
 
 #endif
