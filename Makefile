@@ -13,6 +13,10 @@ grid.o: grid.c grid.h
 player.o: player.c grid.h
 	$(CC) $(CFLAGS) -c player.c 
 
+compileLIB:
+	cd SDL2 && ./configure --prefix=$$PWD/../install_dir
+	cd SDL2 && make install -j6
+
 doc: 
 	doxygen Doxyfile
 
