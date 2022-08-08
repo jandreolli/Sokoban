@@ -129,3 +129,32 @@ Event event_sdl2(){
   return None;
 }
 
+Event event(){
+  char entry = fgetc(stdin);
+  switch(entry){
+		case 'q' :{
+      return Quit;
+			break;
+			}
+		case 'k' :{
+      return Up;
+			break;
+			}
+		case 'j' :{
+      return Down;
+			break;
+			}
+		case 'h' :{
+      return Left;
+			break;
+			}
+		case 'l' :{
+      return Right;
+			break;
+			}
+    default:
+      return None;
+  } 
+}
+
+

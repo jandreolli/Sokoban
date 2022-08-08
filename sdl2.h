@@ -59,5 +59,11 @@ typedef enum Event{
  */
 Event event_sdl2();
 
+/**
+ * @brief function returning the type of action that we have to make for the keyboard management
+ * @return an enum Event
+ */
+Event event();
+
 
 #endif

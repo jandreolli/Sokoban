@@ -4,11 +4,11 @@
 #include <stdbool.h>
 
 int main(void){
-	// initialize sdl2
-	sdl_init();
-
 	// creation of a Grid type structure
 	struct Grid grille;
+
+	// initialize sdl2
+	sdl_init();
 	
 	// call the init_level function to allocate the structure array and fill it 
 	init_level("level1.txt", &grille);
@@ -21,46 +21,40 @@ int main(void){
 	
 	bool run = true;
 	while(run){
-		char entry = fgetc(stdin);
+		Event key = event();
 		
 		// if all the GOALS have a BOX on them, we get out of the game loop
 		if(grille.nbCiblePoints_covered == grille.nbCiblePoints){
-			entry = 'q';
+			key = Quit;
 		}
-
-		switch(entry){
-			case 'h' :{
-				move_player(&grille, entry);
-				display(&grille);
-				display_sdl2(&grille);
+		switch(key){
+			case Up :
+				move_player(&grille, TOP);
 				break;
-			}
-			case 'j' :{
-				move_player(&grille, entry);
-				display(&grille);
-				display_sdl2(&grille);
+			case Down :
+				move_player(&grille, BOTTOM);
 				break;
-			}
-			case 'k' :{
-				move_player(&grille, entry);
-				display(&grille);
-				display_sdl2(&grille);
+			case Left :
+				move_player(&grille, LEFT);
 				break;
-			}
-			case 'l' :{
-				move_player(&grille, entry);
-				display(&grille);
-				display_sdl2(&grille);
+			case Right :
+				move_player(&grille, RIGHT);
 				break;
-			}
-			case 'q' :{
-				// free the game_grid array of the Grid structure 
-				freeArray(&grille);
+			case None:
+				break;
+			case Quit :
 				run = false;
 				break;
-			}
+			default:
+				break;
 		}
+		// display the grid on the terminal
+		display(&grille);
+		// display the grid with sdl2
+		display_sdl2(&grille);
 	}
+	// free the game_grid array of the Grid structure 
+	freeArray(&grille);
 	// quit sdl2
 	sdl_quit();
 }
