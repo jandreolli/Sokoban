@@ -34,4 +34,11 @@ void sdl_init();
 
 void sdl_quit();
 
+/**
+ * @brief function displaying the level with sdl2
+ * @param grille structure Grid
+ */
+void display_sdl2(struct Grid *grid);
+
+
 #endif

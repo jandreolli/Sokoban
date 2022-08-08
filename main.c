@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "grid.h"
+#include "sdl2.h"
 #include <stdbool.h>
 
 int main(void){
@@ -12,9 +13,11 @@ int main(void){
 	// call the init_level function to allocate the structure array and fill it 
 	init_level("level1.txt", &grille);
 	
+	// display with sdl2
+	display_sdl2(&grille);
+
 	// display the level
 	display(&grille);
-	
 	
 	bool run = true;
 	while(run){
@@ -29,21 +32,25 @@ int main(void){
 			case 'h' :{
 				move_player(&grille, entry);
 				display(&grille);
+				display_sdl2(&grille);
 				break;
 			}
 			case 'j' :{
 				move_player(&grille, entry);
 				display(&grille);
+				display_sdl2(&grille);
 				break;
 			}
 			case 'k' :{
 				move_player(&grille, entry);
 				display(&grille);
+				display_sdl2(&grille);
 				break;
 			}
 			case 'l' :{
 				move_player(&grille, entry);
 				display(&grille);
+				display_sdl2(&grille);
 				break;
 			}
 			case 'q' :{
