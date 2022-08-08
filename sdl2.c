@@ -1,4 +1,9 @@
+#include "install_dir/include/SDL2/SDL.h"
 #include "sdl2.h"
+
+// Structure context
+SDLContext context;
+
 
 void sdl_init() {
   int const width = 1280;

@@ -1,5 +1,13 @@
+/**
+ * @file sdl2.h
+ * @author Justine Andreolli
+ */
+
+#ifndef SDL2_HEADER
+#define SDL2_HEADER
+
 #pragma once
-#include <SDL2/SDL.h>
+#include "install_dir/include/SDL2/SDL.h" 
 
 typedef struct SDLContext {
   SDL_Window *window;
@@ -25,3 +33,5 @@ void sdl_init();
  */
 
 void sdl_quit();
+
+#endif
