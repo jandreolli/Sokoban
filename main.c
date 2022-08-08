@@ -21,7 +21,7 @@ int main(void){
 	
 	bool run = true;
 	while(run){
-		Event key = event();
+		Event key = event_sdl2();
 		
 		// if all the GOALS have a BOX on them, we get out of the game loop
 		if(grille.nbCiblePoints_covered == grille.nbCiblePoints){
