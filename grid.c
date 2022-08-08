@@ -74,3 +74,5 @@ void display(struct Grid *grille){
 	}
 }
 
+
+
