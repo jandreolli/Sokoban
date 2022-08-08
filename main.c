@@ -14,6 +14,12 @@ int main(void){
 	bool run = true;
 	while(run){
 		char entry = fgetc(stdin);
+		
+		// if all the GOALS have a BOX on them, we get out of the game loop
+		if(grille.nbCiblePoints_covered == grille.nbCiblePoints){
+			entry = 'q';
+		}
+
 		switch(entry){
 			case 'h' :{
 				move_player(&grille, entry);

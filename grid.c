@@ -21,6 +21,10 @@ void init_level(const char* file_path, struct Grid *grille){ // add parameter st
 	grille->column_number = number_column;
 	grille->row_number = number_row;
 
+	// initialize the number of cible points
+	grille->nbCiblePoints = number_goals;
+	grille->nbCiblePoints_covered = 0;
+
 	int current_row = 0;
 	//int current_goal = 0;
 

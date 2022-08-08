@@ -16,7 +16,9 @@ enum CaseType{
 	BOX = '$',
 	PLAYER = '@',
 	GOAL = '.',
-	NONE = ' '
+	NONE = ' ',
+	BOX_OK = '*',
+	PLAYER_GOAL = '+'
 };
 
 /**
@@ -51,6 +53,8 @@ struct Grid{
 	int column_number; ///< Number of columns in game_grid
 	int row_number; ///< Number of lines in game_grid
 	struct Player playerPosition; ///< Structure containing the player position
+	int nbCiblePoints;	//< number of cible points to cover
+	int nbCiblePoints_covered; //< number of cible points covered
 };
 
 /**
